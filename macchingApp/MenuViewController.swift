@@ -21,6 +21,7 @@ class MenuViewController: UIViewController,GuillotineMenu {
     
     var dismissButton: UIButton?
     var titleLabel: UILabel?
+    let userDefailt = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,8 +60,19 @@ class MenuViewController: UIViewController,GuillotineMenu {
     }
     
     @objc func PostViewAction(_ button:UIButton){
+        
+        if userDefailt.string(forKey: "adress") != nil || userDefailt.string(forKey: "pass") != nil{
         let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "Post")
         self.present(postViewController!,animated: true)
+        }else{
+            alertAction(text: "アカウントが登録されていません")
+        }
+    }
+    func alertAction(text:String){
+        let alertController = UIAlertController(title: "アラート", message: text, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        self.present(alertController,animated: true)
     }
     
     /*

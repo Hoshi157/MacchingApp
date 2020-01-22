@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
         super.viewWillAppear(animated)
         print("viewWillApper")
         
-        if userDefault.string(forKey: "name") != nil{
+        if userDefault.string(forKey: "uid") != nil{
             let namex = userDefault.string(forKey: "name")
             wellcomeLabel.text = "WellCome \(namex!) さん"
             loginButton.setTitle("\(namex!) さんでログイン", for: .normal)
@@ -80,12 +80,19 @@ class LoginViewController: UIViewController {
                 self.present(homeviewController!,animated: true)
             }
         }else{
-            print("アカウントを作成してください")
+            self.alertAction(text:"アカウントが登録されていません")
             return
+        }
+    }
+        
+        func alertAction(text:String){
+            let alertController = UIAlertController(title: "アラート", message: text, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            self.present(alertController,animated: true)
         }
         
         
-    }
     
     
     
