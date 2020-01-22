@@ -117,6 +117,11 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if userDefault.string(forKey: "adress") == nil || userDefault.string(forKey: "pass") == nil {
+            alertAction(text: "アカウントを登録してください")
+            return
+        }
         let targetUid = MyCollections[indexPath.row].uid
         userDefault.set(targetUid, forKey: "targetUid")
         let uid = userDefault.string(forKey:"uid")
@@ -139,5 +144,12 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         }
         
         self.present(messageViewController,animated: true,completion:nil)
+    }
+    
+    func alertAction(text:String){
+        let alertController = UIAlertController(title: "アラート", message: text, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        self.present(alertController,animated: true)
     }
 }

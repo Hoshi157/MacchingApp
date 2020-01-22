@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
         super.viewWillAppear(animated)
         print("viewWillApper")
         
-        if userDefault.string(forKey: "uid") != nil{
+        if userDefault.string(forKey: "name") != nil{
             let namex = userDefault.string(forKey: "name")
             wellcomeLabel.text = "WellCome \(namex!) さん"
             loginButton.setTitle("\(namex!) さんでログイン", for: .normal)
