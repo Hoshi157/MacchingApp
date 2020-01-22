@@ -1,4 +1,4 @@
-# MacchingApp
+# Saloon!
 
 
 <p align="center">
