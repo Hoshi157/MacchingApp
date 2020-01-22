@@ -19,6 +19,9 @@
  * Firestore  
  * Messagekit   
  * IBAnimatable  
+ * TransitionButton  
+ * TextFieldEffects  
+ * GuillotineMenu
 
 ## Installation
 
