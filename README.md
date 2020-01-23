@@ -23,8 +23,6 @@ macching service created from swift.
 <img src="https://user-images.githubusercontent.com/51669998/73010245-65d7b880-3e55-11ea-9eea-b0c3f42f7f6d.png" width="200px">
 <img src="https://user-images.githubusercontent.com/51669998/73010394-b222f880-3e55-11ea-9efd-8589e3906cf6.png" width="200px">
 
-* 2番目のボタンのwithOut Loginではログインせずにプロフィール表示画面を見ることができますがチャット機能,プロフィール投稿機能は使用できません。
-
 ### 2.プロフィール表示機能
 
 * Users画面(プロフィール表示画面)から左上のボタンを押し、profile Postボタン(3番目)を押すことで自分のプロフィールを投稿することができます。
