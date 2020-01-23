@@ -17,21 +17,21 @@ class ViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        self.imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+        self.imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
         self.imageView.center = self.view.center
-        self.imageView.image = UIImage(named: "hoge")
+        self.imageView.image = UIImage(named:"saloon_icon")
         self.view.addSubview(self.imageView)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        UIView.animate(withDuration: 0.3, delay:1.0, options:.curveEaseOut, animations: {() in
-            self.imageView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        UIView.animate(withDuration: 0.3, delay:0.5, options:.curveEaseOut, animations: {() in
+            self.imageView.transform = CGAffineTransform(scaleX:1.0, y:1.0)
         }, completion: nil)
         
-        UIView.animate(withDuration: 0.2, delay: 1.3, options: .curveEaseOut, animations: {() in
-            self.imageView.transform = CGAffineTransform(scaleX: 8.0, y: 8.0)
+        UIView.animate(withDuration: 0.3, delay:0.5, options: .curveEaseOut, animations: {() in
+            self.imageView.transform = CGAffineTransform(scaleX: 5.0, y: 5.0)
             self.imageView.alpha = 0
         } , completion: {(Bool) in
             self.imageView.removeFromSuperview()
