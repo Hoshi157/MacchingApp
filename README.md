@@ -17,7 +17,11 @@ macching service created from swift.
 ### 1.ログイン起動
 
 * 3番目のaccoute Createボタンでアカウントを作成しログインできます。
+* 2番目のボタンのwithOut Loginではログインせずにプロフィール表示画面を見ることができますがチャット機能,プロフィール投稿機能は使用できません。
+
 <img src="https://user-images.githubusercontent.com/51669998/73009609-3d02f380-3e54-11ea-8217-e92e1960c37a.png" width="200px">
+<img src="https://user-images.githubusercontent.com/51669998/73010245-65d7b880-3e55-11ea-9eea-b0c3f42f7f6d.png" width="200px">
+<img src="https://user-images.githubusercontent.com/51669998/73010394-b222f880-3e55-11ea-9efd-8589e3906cf6.png" width="200px">
 
 * 2番目のボタンのwithOut Loginではログインせずにプロフィール表示画面を見ることができますがチャット機能,プロフィール投稿機能は使用できません。
 
