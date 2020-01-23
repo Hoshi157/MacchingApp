@@ -19,8 +19,8 @@ macching service created from swift.
 * 3番目のaccoute Createボタンでアカウントを作成しログインできます。
 * 2番目のボタンのwithOut Loginではログインせずにプロフィール表示画面を見ることができますがチャット機能,プロフィール投稿機能は使用できません。
 
-<img src="https://user-images.githubusercontent.com/51669998/73009609-3d02f380-3e54-11ea-8217-e92e1960c37a.png" width="200px">
-<img src="https://user-images.githubusercontent.com/51669998/73010245-65d7b880-3e55-11ea-9eea-b0c3f42f7f6d.png" width="200px">
+<img src="https://user-images.githubusercontent.com/51669998/73009609-3d02f380-3e54-11ea-8217-e92e1960c37a.png" width="200px">&emsp;
+<img src="https://user-images.githubusercontent.com/51669998/73010245-65d7b880-3e55-11ea-9eea-b0c3f42f7f6d.png" width="200px">&emsp;
 <img src="https://user-images.githubusercontent.com/51669998/73010394-b222f880-3e55-11ea-9efd-8589e3906cf6.png" width="200px">
 
 ### 2.プロフィール表示機能
@@ -28,15 +28,20 @@ macching service created from swift.
 * Users画面(プロフィール表示画面)から左上のボタンを押し、profile Postボタン(3番目)を押すことで自分のプロフィールを投稿することができます。
 * プロフィールを投稿する画面では名前、テキスト(表示はされない),写真が投稿できます。(写真を投稿する際は左上の画像をタップします)
 
-<img src="https://user-images.githubusercontent.com/51669998/73010968-c1567600-3e56-11ea-8240-52f2af724209.png" width="200px">
-<img src="https://user-images.githubusercontent.com/51669998/73011064-e8ad4300-3e56-11ea-959b-8435cf8eb568.png" width="200px">
-<img src="https://user-images.githubusercontent.com/51669998/73011166-11cdd380-3e57-11ea-8623-04965b30bb9c.png" width="200px">
+<img src="https://user-images.githubusercontent.com/51669998/73010968-c1567600-3e56-11ea-8240-52f2af724209.png" width="200px">&emsp;
+<img src="https://user-images.githubusercontent.com/51669998/73011064-e8ad4300-3e56-11ea-959b-8435cf8eb568.png" width="200px">&emsp;
+<img src="https://user-images.githubusercontent.com/51669998/73011166-11cdd380-3e57-11ea-8623-04965b30bb9c.png" width="200px">&emsp;
 <img src="https://user-images.githubusercontent.com/51669998/73011204-24480d00-3e57-11ea-9b88-e4a9722d3f59.png" width="200px">
 
-### 3.チャット起動
+### 3.チャット機能（トーク履歴記憶保持機能）
 
 * User画面にてプロフィールボタンをタップすることにより、相手とチャットすることができます。
 * 1度チャットした相手のトーク履歴も残り、menu画面のTook Roomボタンでチャットした相手がリスト表示されタップすると再度チャットができます。
+
+<img src="https://user-images.githubusercontent.com/51669998/73011747-37a7a800-3e58-11ea-908e-ca01400e68e5.png" width="200px">&emsp;
+<img src="https://user-images.githubusercontent.com/51669998/73011760-3e361f80-3e58-11ea-9498-b079410262cf.png" width="200px">&emsp;
+<img src="https://user-images.githubusercontent.com/51669998/73011768-442c0080-3e58-11ea-8fb3-9ddb818f4273.png" width="200px">
+
 
 ### 4.アイコン
 * 機能とは関係ないですがsketchでアイコンを自作しました。(一応、マッチとライターです)
