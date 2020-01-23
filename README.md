@@ -30,7 +30,6 @@ macching service created from swift.
 
 <img src="https://user-images.githubusercontent.com/51669998/73010968-c1567600-3e56-11ea-8240-52f2af724209.png" width="200px">
 <img src="https://user-images.githubusercontent.com/51669998/73011064-e8ad4300-3e56-11ea-959b-8435cf8eb568.png" width="200px">
-<img src="https://user-images.githubusercontent.com/51669998/73011097-f4006e80-3e56-11ea-80a7-8532824e1493.png" width="200px">
 <img src="https://user-images.githubusercontent.com/51669998/73011166-11cdd380-3e57-11ea-8623-04965b30bb9c.png" width="200px">
 <img src="https://user-images.githubusercontent.com/51669998/73011204-24480d00-3e57-11ea-9b88-e4a9722d3f59.png" width="200px">
 
