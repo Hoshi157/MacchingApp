@@ -17,7 +17,7 @@ macching service created from swift.
 ### 1.ログイン起動
 
 * 3番目のaccoute Createボタンでアカウントを作成しログインできます。
-![Simulator Screen Shot - iPhone Xʀ - 2020-01-24 at 02 31 57](https://user-images.githubusercontent.com/51669998/73009609-3d02f380-3e54-11ea-8217-e92e1960c37a.png)
+<img src="https://user-images.githubusercontent.com/51669998/73009609-3d02f380-3e54-11ea-8217-e92e1960c37a.png" width="200px">
 
 * 2番目のボタンのwithOut Loginではログインせずにプロフィール表示画面を見ることができますがチャット機能,プロフィール投稿機能は使用できません。
 
