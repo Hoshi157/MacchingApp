@@ -36,6 +36,7 @@ macching service created from swift.
 ### 4.アイコン
 * 機能とは関係ないですがsketchでアイコンを自作しました。(一応、マッチとライターです)
 
+<img src="https://user-images.githubusercontent.com/51669998/73010694-37a6a880-3e56-11ea-8986-3adfa63016ec.png" width="200px">
 
 ## Requirement
 
