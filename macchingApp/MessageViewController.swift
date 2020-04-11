@@ -10,7 +10,7 @@ import UIKit
 import MessageKit
 import InputBarAccessoryView
 import Firebase
-
+// チャット画面
 class MessageViewController: MessagesViewController {
     
     var Messages:[MockMessage] = []
@@ -22,71 +22,88 @@ class MessageViewController: MessagesViewController {
     var targetUid:String?
     let db = Firestore.firestore()
     let userDb = Firestore.firestore().collection("users")
+    // チャットしたルーム番号を保持(履歴があれば)
     var targetRoomId:String?
     var userTargetRoomId:String?
-    let width = UIScreen.main.bounds.width
+    let screen: CGRect = UIScreen.main.bounds
+    
+    lazy var naviBar: UINavigationBar = {
+        let navBar: UINavigationBar = UINavigationBar()
+        navBar.frame = CGRect(x: 0, y: 50, width: screen.width, height: 60)
+        navBar.barTintColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.6991919949)
+        navBar.tintColor = .orange
+        navBar.setValue(true, forKey: "hidesShadow")
+        return navBar
+    }()
+    
+    lazy var naviItem: UINavigationItem = {
+        let navItem: UINavigationItem = UINavigationItem()
+        navItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "back_left"), landscapeImagePhone: #imageLiteral(resourceName: "back_left"), style: .plain, target: self, action: #selector(dismissButtonAction(_:)))
+        return navItem
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Message:viewDidLoad")
         // Do any additional setup after loading the view.
+        
+        self.view.addSubview(messagesCollectionView)
+        naviBar.pushItem(naviItem, animated: false)
+        self.view.addSubview(naviBar)
+        
+        let edgeInsets = UIEdgeInsets(top: 60, left: 0, bottom: 0, right: 0)
+        messagesCollectionView.contentInset = edgeInsets
+        messagesCollectionView.scrollIndicatorInsets = edgeInsets
+        messagesCollectionView.messagesDataSource = self
+        messagesCollectionView.messagesLayoutDelegate = self
+        messagesCollectionView.messagesDisplayDelegate = self
+        messageInputBar.delegate = self
+        messagesCollectionView.messageCellDelegate = self
+        messagesCollectionView.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.7)
         self.chatFlg = false
         
-        if let layot = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout{
+        if let layot = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
             layot.setMessageIncomingAvatarSize(.zero)
             let insets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
             layot.setMessageOutgoingMessageTopLabelAlignment(LabelAlignment(textAlignment: .right, textInsets: insets))
             layot.setMessageOutgoingMessageBottomLabelAlignment(LabelAlignment(textAlignment: .right, textInsets: insets))
         }
-        
-            messagesCollectionView.messagesDataSource = self
-            messagesCollectionView.messagesLayoutDelegate = self
-            messagesCollectionView.messagesDisplayDelegate = self
-            messageInputBar.delegate = self
-            messagesCollectionView.messageCellDelegate = self
-        
-        let navBar = UINavigationBar()
-        navBar.frame = CGRect(x: 0, y: 50, width: width, height:60)
-        navBar.barTintColor = .lightGray
-        let navItem = UINavigationItem(title: "トーク")
-        navItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(dismissButtonAction(_:)))
-        navBar.pushItem(navItem, animated: true)
-        self.view.addSubview(navBar)
-        
-        let edgeInsets = UIEdgeInsets(top: 60, left: 0, bottom: 0, right: 0)
-        messagesCollectionView.contentInset = edgeInsets
-        messagesCollectionView.scrollIndicatorInsets = edgeInsets
-        
-        if userDefoult.string(forKey: "uid") != nil && userDefoult.string(forKey: "name") != nil && userDefoult.string(forKey: "targetUid") != nil{
+        // 自分のID、名前、チャット相手のIDを取得
+        if userDefoult.string(forKey: "uid") != nil && userDefoult.string(forKey: "name") != nil && userDefoult.string(forKey: "targetUid") != nil {
             self.uid = userDefoult.string(forKey: "uid")
             self.name = userDefoult.string(forKey: "name")
             self.targetUid = userDefoult.string(forKey: "targetUid")
+            self.title = "チャット (ログイン)"
         }else{
-            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: false, completion: nil)
             return
         }
-                        
+        
     }
     
-    @objc func dismissButtonAction(_ button:UIButton){
-        self.dismiss(animated: true, completion: nil)
+    @objc func dismissButtonAction(_ button: UIBarButtonItem){
+        let transiton: CATransition = CATransition()
+        transiton.duration = 0.25
+        transiton.type = CATransitionType.push
+        transiton.subtype = CATransitionSubtype.fromLeft
+        view.window?.layer.add(transiton, forKey: kCATransition)
+        self.dismiss(animated: false, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("viewWillAppear")
         messagesCollectionView.reloadData()
-        
-        }
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("viewDidApper")
-        
         if self.targetRoomId != nil {
+            // チャット履歴があれば
             print("targetalready")
             self.targetalreadyGetroom()
         }else{
+            // チャット履歴がなければ
             self.getroom()
             print("getRoom")
         }
@@ -97,9 +114,10 @@ class MessageViewController: MessagesViewController {
             self.getNewRoomKey()
         }
     }
-    
+    // 新しいルームナンバーを取得
     var count = 1
     func getNewRoomKey(){
+        // firebaseのルームナンバーを更新
         Firestore.firestore().collection("roomKey").document("roomKeyNumber").getDocument(){ documentSnaoshot,error in
             guard let data = documentSnaoshot?.data() else{return}
             if (data.count >= 1){
@@ -110,7 +128,7 @@ class MessageViewController: MessagesViewController {
             self.UpdateEachInfo()
         }
     }
-    
+    // ここでチャット履歴を保持
     func UpdateEachInfo(){
         userDb.document(self.targetUid!).updateData(["inRoom":self.roomId!])
         userDb.document(self.uid!).updateData(["inRoom":self.roomId!])
@@ -119,7 +137,7 @@ class MessageViewController: MessagesViewController {
         
         self.getMessage()
     }
-    
+    // チャット開始(新しい相手との)
     func getMessage(){
         self.chatFlg = true
         db.collection("rooms").document(self.roomId!).collection("chate").addSnapshotListener{ querySnapshot,error in
@@ -143,15 +161,17 @@ class MessageViewController: MessagesViewController {
     }
     
     func targetalreadyGetroom(){
-        if self.targetUid != nil && self.uid != self.targetUid{
+        if self.targetUid != nil && self.uid != self.targetUid {
+            // 自分と相手のルームナンバーを同じにする
             userDb.document(self.targetUid!).updateData(["inRoom":self.targetRoomId!])
             userDb.document(self.uid!).updateData(["inRoom":self.targetRoomId!])
             self.targetRoomIdGetMessage()
         }
     }
-    
+    // チャット開始(履歴がある相手との)
     func targetRoomIdGetMessage(){
         self.chatFlg = true
+        // 追加されるたびイベント発火
         db.collection("rooms").document(self.targetRoomId!).collection("chate").addSnapshotListener{ querySnaoshot,eroor in
             guard let snapshots = querySnaoshot else{return}
             snapshots.documentChanges.forEach{ diff in
@@ -174,17 +194,17 @@ class MessageViewController: MessagesViewController {
     
     
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 
@@ -205,10 +225,8 @@ extension MessageViewController:MessagesDataSource {
 
 
 
-extension MessageViewController:MessageInputBarDelegate{
-    
+extension MessageViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        
         if chatFlg == true{
             postData(text: text)
         }else{
@@ -219,7 +237,6 @@ extension MessageViewController:MessageInputBarDelegate{
     
     func postData(text:String){
         let post = ["from":currentSender().senderId,"name":currentSender().displayName,"text":text]
-        
         if self.roomId != nil{
             let chateDb = Firestore.firestore().collection("rooms").document(self.roomId!).collection("chate")
             chateDb.addDocument(data: post)
@@ -233,7 +250,6 @@ extension MessageViewController:MessageInputBarDelegate{
 
 
 extension MessageViewController:MessagesLayoutDelegate{
-    
     func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
         if indexPath.section % 3 == 0{
             return 10
@@ -247,28 +263,26 @@ extension MessageViewController:MessagesLayoutDelegate{
     
     func messageBottomLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
         return 16
-}
+    }
 }
 
 
 extension MessageViewController:MessagesDisplayDelegate{
-        
-        func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-            return isFromCurrentSender(message: message) ? .magenta : .yellow
-        }
-        
-        func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
-            
-            let corner:MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight:.bottomLeft
-            return .bubbleTail(corner, .curved)
-        }
-        
+    func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
+        return isFromCurrentSender(message: message) ? #colorLiteral(red: 1, green: 0.7573645695, blue: 0, alpha: 1) : #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
     
+    func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
+        let corner:MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight:.bottomLeft
+        return .bubbleTail(corner, .curved)
+    }
+    
+}
+
 
 
 extension MessageViewController:MessageCellDelegate{
-        
+    
 }
 
 

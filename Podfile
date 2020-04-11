@@ -6,14 +6,11 @@ target 'macchingApp' do
   use_frameworks!
 
   # Pods for macchingApp
-pod 'TransitionButton'
 pod 'Firebase/Core'
 pod 'Firebase/Firestore'
 pod 'Firebase'
 pod 'Firebase/Auth'
-pod 'TextFieldEffects'
-pod 'IBAnimatable'
-pod 'GuillotineMenu'
 pod 'MessageKit'
-pod 'Firebase/Storage'
+pod 'SnapKit'
+pod 'TPKeyboardAvoiding'
 end

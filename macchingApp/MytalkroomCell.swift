@@ -10,10 +10,13 @@ import Foundation
 
 class MytalkroomCell{
     var name:String?
+    // チャットしたルームナンバーを保持
     var targetId:String?
+    var image: String?
     
-    init(name:String,targetId:String){
+    init(name:String,targetId:String, image: String){
         self.name = name
         self.targetId = targetId
+        self.image = image
     }
 }
