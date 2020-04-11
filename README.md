@@ -19,9 +19,9 @@ macching service created from swift.
 * アカウント作成せずにプロフィール表示画面(ホーム画面)を閲覧できる様にし、アカウント作成(ログイン)した時点でチャット機能、投稿機能を使用できる様にした。
 * 上部のナビゲーションバーにて現在ログイン状態か、ログアウト状態かわかる様にした。
 
-<img src="https://user-images.githubusercontent.com/51669998/73009609-3d02f380-3e54-11ea-8217-e92e1960c37a.png" width="200px">&emsp;
-<img src="https://user-images.githubusercontent.com/51669998/73010245-65d7b880-3e55-11ea-9eea-b0c3f42f7f6d.png" width="200px">&emsp;
-<img src="https://user-images.githubusercontent.com/51669998/73010394-b222f880-3e55-11ea-9efd-8589e3906cf6.png" width="200px">
+<img src="https://user-images.githubusercontent.com/51669998/79055570-fa013100-7c88-11ea-9258-88a16b61c767.png" width="200px">&emsp;
+<img src="https://user-images.githubusercontent.com/51669998/79055611-6714c680-7c89-11ea-80d8-760d33717cd7.png" width="200px">&emsp;
+<img src="https://user-images.githubusercontent.com/51669998/79055632-91668400-7c89-11ea-9bd4-71330403e1ba.png" width="200px">
 
 
 ### 2.アカウント作成
@@ -29,15 +29,15 @@ macching service created from swift.
 * 左上部のアカウントボタンをプッシュすることでアカウント作成画面が表示される。
 * 登録ボタンを押すことでアカウントの登録ができ、チャット機能、投稿機能が使用できる。
 
+<img src="https://user-images.githubusercontent.com/51669998/79055666-d25e9880-7c89-11ea-97b1-b1e8f0d1d4e5.png" width="200px">
+
 ### 3.プロフィール投稿機能
 
 * 名前はアカウント作成時の名前が自動入力され、画像をタップするとアバター画像が表示できる様になります。
 * プロフィールを投稿する画面では名前、テキスト(ホーム画面には表示はされない),写真が投稿できます。
 
-<img src="https://user-images.githubusercontent.com/51669998/73010968-c1567600-3e56-11ea-8240-52f2af724209.png" width="200px">&emsp;
-<img src="https://user-images.githubusercontent.com/51669998/73011064-e8ad4300-3e56-11ea-959b-8435cf8eb568.png" width="200px">&emsp;
-<img src="https://user-images.githubusercontent.com/51669998/73011166-11cdd380-3e57-11ea-8623-04965b30bb9c.png" width="200px">&emsp;
-<img src="https://user-images.githubusercontent.com/51669998/73011204-24480d00-3e57-11ea-9b88-e4a9722d3f59.png" width="200px">
+<img src="https://user-images.githubusercontent.com/51669998/79055700-09cd4500-7c8a-11ea-8416-fdcb09bed827.png" width="200px">&emsp;
+<img src="https://user-images.githubusercontent.com/51669998/79055704-0e91f900-7c8a-11ea-98f2-07ff0cf18f6f.png" width="200px">&emsp;
 
 ### 4.チャット機能（トーク履歴記憶保持機能）
 
@@ -45,10 +45,8 @@ macching service created from swift.
 * 一度チャットした相手はトークルームに追加・保持され、チャットを継続することができます。
 * トークルームに追加された相手のセルをタップすることでもチャット画面に行くことができます。
 
-<img src="https://user-images.githubusercontent.com/51669998/73011747-37a7a800-3e58-11ea-908e-ca01400e68e5.png" width="200px">&emsp;
-<img src="https://user-images.githubusercontent.com/51669998/73011760-3e361f80-3e58-11ea-9498-b079410262cf.png" width="200px">&emsp;
-<img src="https://user-images.githubusercontent.com/51669998/73011768-442c0080-3e58-11ea-8fb3-9ddb818f4273.png" width="200px">
-
+<img src="https://user-images.githubusercontent.com/51669998/79055737-5749b200-7c8a-11ea-98fa-1d2d5b747de6.png" width="200px">&emsp;
+<img src="https://user-images.githubusercontent.com/51669998/79055744-5ca6fc80-7c8a-11ea-9c42-0fda0fa67018.png" width="200px">&emsp;
 
 ### 4.アイコン
 * 機能とは関係ないですがsketchでアイコンを自作しました。(一応、マッチとライターです)
