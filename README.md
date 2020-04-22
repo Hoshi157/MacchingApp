@@ -31,7 +31,9 @@ macching service created from swift.
 * 画像かプロフィール確認という部分をタップすることで相手が自分のアイコンをタップしたときのプロフィールを閲覧できる。
 * またプロフィールを編集するボタンをタップするとプロフィールを編集することができる。
 
-<img src="https://user-images.githubusercontent.com/51669998/79055666-d25e9880-7c89-11ea-97b1-b1e8f0d1d4e5.png" width="200px">
+<img src="https://user-images.githubusercontent.com/51669998/80036699-39533b80-852d-11ea-865c-522621c47191.png" width="200px">&emsp;
+<img src="https://user-images.githubusercontent.com/51669998/80036712-3ce6c280-852d-11ea-9a93-280ee2c6d367.png" width="200px">&emsp;
+<img src="https://user-images.githubusercontent.com/51669998/80036718-3f491c80-852d-11ea-8fa4-26b54891e822.png" width="200px">
 
 ### 3.いいね画面
 
