@@ -20,9 +20,9 @@ macching service created from swift.
 * セルをタップすると相手のプロフィールが閲覧できる様になっている。
 * 相手のプロフィールからいいねとチャットができる。(ログイン時のみ)
 
-<img src="https://user-images.githubusercontent.com/51669998/79055570-fa013100-7c88-11ea-9258-88a16b61c767.png" width="200px">&emsp;
-<img src="https://user-images.githubusercontent.com/51669998/79055611-6714c680-7c89-11ea-80d8-760d33717cd7.png" width="200px">&emsp;
-<img src="https://user-images.githubusercontent.com/51669998/79055632-91668400-7c89-11ea-9bd4-71330403e1ba.png" width="200px">
+<img src="https://user-images.githubusercontent.com/51669998/80036483-c6e25b80-852c-11ea-99ee-bb99f223b350.png" width="200px">&emsp;
+<img src="https://user-images.githubusercontent.com/51669998/80036505-d06bc380-852c-11ea-8e4b-81e69f0862ff.png" width="200px">&emsp;
+<img src="https://user-images.githubusercontent.com/51669998/80036533-e2e5fd00-852c-11ea-9616-86e9f39ed77d.png" width="200px">
 
 
 ### 2.プロフィール画面
