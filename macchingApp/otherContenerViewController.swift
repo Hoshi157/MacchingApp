@@ -120,7 +120,7 @@ class otherContenerViewController: UIViewController {
                     childVC.avaterImageView.image = #imageLiteral(resourceName: "no_Image")
                 }
                 if (document?.data()!["age"] != nil) {
-                    let age = document?.data()!["age"] as! String
+                    let age = document?.data()!["age"] as? String
                     childVC.ageLabel.text = age
                     childVC.thirdAgeTextLabel.text = age
                 }else {
@@ -128,7 +128,7 @@ class otherContenerViewController: UIViewController {
                     childVC.thirdAgeTextLabel.text = "未選択"
                 }
                 if (document?.data()!["residence"] != nil) {
-                    let residence = document?.data()!["residence"] as! String
+                    let residence = document?.data()!["residence"] as? String
                     childVC.residenceLabel.text = residence
                     childVC.thirdResidenceTextLabel.text = residence
                 }else {
@@ -136,7 +136,7 @@ class otherContenerViewController: UIViewController {
                     childVC.thirdResidenceTextLabel.text = "未選択"
                 }
                 if (document?.data()!["gender"] != nil) {
-                    let gender = document?.data()!["gender"] as! String
+                    let gender = document?.data()!["gender"] as? String
                     let man = "男"
                     let woman = "女"
                     if (man == gender) {
@@ -150,25 +150,25 @@ class otherContenerViewController: UIViewController {
                     childVC.genderImage.image = #imageLiteral(resourceName: "account")
                 }
                 if (document?.data()!["selfIntroTextView"] != nil) {
-                    let tweet = document?.data()!["selfIntroTextView"] as! String
+                    let tweet = document?.data()!["selfIntroTextView"] as? String
                     childVC.introTextLabel.text = tweet
                 }else {
                     childVC.introTextLabel.text = ""
                 }
                 if (document?.data()!["nickName"] != nil) {
-                    let nickName = document?.data()!["nickName"] as! String
+                    let nickName = document?.data()!["nickName"] as? String
                     childVC.nickNameTextLabel.text = nickName
                 }else {
                     childVC.nickNameTextLabel.text = "未選択"
                 }
                 if (document?.data()!["hobby"] != nil) {
-                    let hobby = document?.data()!["hobby"] as! String
+                    let hobby = document?.data()!["hobby"] as? String
                     childVC.hobbyTextLabel.text = hobby
                 }else {
                     childVC.hobbyTextLabel.text = "未記載"
                 }
                 if (document?.data()!["jobs"] != nil) {
-                    let jobs = document?.data()!["jobs"] as! String
+                    let jobs = document?.data()!["jobs"] as? String
                     childVC.jobsTextLabel.text = jobs
                 }else {
                     childVC.jobsTextLabel.text = "未選択"

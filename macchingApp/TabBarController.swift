@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 // タブコントローラーを設置
 class TabBarController: UITabBarController {
@@ -44,6 +45,8 @@ class TabBarController: UITabBarController {
         self.tabBar.tintColor = .orange
         self.setViewControllers(ViewVontrollers, animated: false)
         // Do any additional setup after loading the view.
+        
+        Auth.auth().signInAnonymously(completion: nil)
     }
     
     

@@ -50,6 +50,7 @@ class HomeViewController: UIViewController {
             guard let documents = querySnapshot?.documents else {
                 return
             }
+            print("snapshot")
             self.MyCollections = []
             documents.forEach{ diff in
                 print(diff.documentID)
