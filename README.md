@@ -85,7 +85,7 @@ pod "target" install
 
 * タブコントローラーを使用し使用できる機能をわかりやすい様にした。
 * ストーリーボードを廃止してコードのみの実装へ変更した。
-* 保存や画面更新などはuserDefaultsやFirestoreのaddSnapshotoLissunなどに変更してデータが変更された際に受け取れる様にした。
+* 保存や画面更新などはuserDefaultsやFirestoreのaddSnapshotListenerに変更してデータが変更された際に自動で受け取れる様にした。
 
 
 
