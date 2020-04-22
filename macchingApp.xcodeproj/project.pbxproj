@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		23690F30C52BF43933B55E79 /* Pods_macchingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A207474FB26BB89B2DD638 /* Pods_macchingApp.framework */; };
-		8D16F0B023D07352004F9070 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D16F0AF23D07352004F9070 /* PostViewController.swift */; };
+		8D1140BA244A39EA00072D0F /* editProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1140B9244A39EA00072D0F /* editProfileViewController.swift */; };
+		8D16F0B023D07352004F9070 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D16F0AF23D07352004F9070 /* ProfileViewController.swift */; };
 		8D227A8723D814BB006FBD7C /* TalkroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D227A8623D814BB006FBD7C /* TalkroomViewController.swift */; };
 		8D227A8923D8207C006FBD7C /* MytalkroomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D227A8823D8207C006FBD7C /* MytalkroomCell.swift */; };
+		8D2DF31E24493120001C9FEC /* otherContenerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2DF31D24493120001C9FEC /* otherContenerViewController.swift */; };
 		8D3981DE243738220005A1DC /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3981DD243738220005A1DC /* CollectionCell.swift */; };
 		8D3981E024374BA60005A1DC /* CastamCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3981DF24374BA60005A1DC /* CastamCollection.swift */; };
 		8D49E3BA243751A900086C63 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D49E3B9243751A900086C63 /* TabBarController.swift */; };
@@ -21,13 +23,22 @@
 		8D5C690923CDC76E00D8F528 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5C690823CDC76E00D8F528 /* HomeViewController.swift */; };
 		8D5C690B23CDCE3700D8F528 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D5C690A23CDCE3700D8F528 /* GoogleService-Info.plist */; };
 		8D64CC5C23D0E59C0045F413 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D64CC5B23D0E59C0045F413 /* MessageViewController.swift */; };
+		8D7097A8244B5DCD0070FCAC /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7097A7244B5DCD0070FCAC /* CustomTableViewCell.swift */; };
+		8D7097AA244C59A70070FCAC /* profileNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7097A9244C59A70070FCAC /* profileNavigationViewController.swift */; };
+		8D7097AC244D73030070FCAC /* selfIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7097AB244D73030070FCAC /* selfIntroViewController.swift */; };
+		8D7097AE244FD0EA0070FCAC /* goodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7097AD244FD0EA0070FCAC /* goodTableViewController.swift */; };
 		8D9D7C0E23D3BEB70037CFCE /* MockMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9D7C0D23D3BEB70037CFCE /* MockMessage.swift */; };
+		8DA6091C2447CDAF00CCDEC8 /* DetalisProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA6091B2447CDAF00CCDEC8 /* DetalisProfileViewController.swift */; };
+		8DBD778D244FEE7400DD1D85 /* goodTableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD778C244FEE7400DD1D85 /* goodTableArray.swift */; };
+		8DC02E6F2448F8CE00215743 /* personContenerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC02E6E2448F8CE00215743 /* personContenerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8D16F0AF23D07352004F9070 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		8D1140B9244A39EA00072D0F /* editProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editProfileViewController.swift; sourceTree = "<group>"; };
+		8D16F0AF23D07352004F9070 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		8D227A8623D814BB006FBD7C /* TalkroomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkroomViewController.swift; sourceTree = "<group>"; };
 		8D227A8823D8207C006FBD7C /* MytalkroomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MytalkroomCell.swift; sourceTree = "<group>"; };
+		8D2DF31D24493120001C9FEC /* otherContenerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = otherContenerViewController.swift; sourceTree = "<group>"; };
 		8D3981DD243738220005A1DC /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		8D3981DF24374BA60005A1DC /* CastamCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastamCollection.swift; sourceTree = "<group>"; };
 		8D49E3B9243751A900086C63 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -40,7 +51,14 @@
 		8D5C690823CDC76E00D8F528 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8D5C690A23CDCE3700D8F528 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8D64CC5B23D0E59C0045F413 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		8D7097A7244B5DCD0070FCAC /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		8D7097A9244C59A70070FCAC /* profileNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileNavigationViewController.swift; sourceTree = "<group>"; };
+		8D7097AB244D73030070FCAC /* selfIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selfIntroViewController.swift; sourceTree = "<group>"; };
+		8D7097AD244FD0EA0070FCAC /* goodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goodTableViewController.swift; sourceTree = "<group>"; };
 		8D9D7C0D23D3BEB70037CFCE /* MockMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMessage.swift; sourceTree = "<group>"; };
+		8DA6091B2447CDAF00CCDEC8 /* DetalisProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalisProfileViewController.swift; sourceTree = "<group>"; };
+		8DBD778C244FEE7400DD1D85 /* goodTableArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goodTableArray.swift; sourceTree = "<group>"; };
+		8DC02E6E2448F8CE00215743 /* personContenerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = personContenerViewController.swift; sourceTree = "<group>"; };
 		8E839C5FF2406B94540497B0 /* Pods-macchingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-macchingApp.debug.xcconfig"; path = "Target Support Files/Pods-macchingApp/Pods-macchingApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D2A207474FB26BB89B2DD638 /* Pods_macchingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_macchingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF0903589D2B3B751A4AAD6E /* Pods-macchingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-macchingApp.release.xcconfig"; path = "Target Support Files/Pods-macchingApp/Pods-macchingApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -99,9 +117,18 @@
 				8D5C68F623CDC08000D8F528 /* AppDelegate.swift */,
 				8D49E3B9243751A900086C63 /* TabBarController.swift */,
 				8D5C690823CDC76E00D8F528 /* HomeViewController.swift */,
-				8D3981DD243738220005A1DC /* CollectionCell.swift */,
 				8D3981DF24374BA60005A1DC /* CastamCollection.swift */,
-				8D16F0AF23D07352004F9070 /* PostViewController.swift */,
+				8D3981DD243738220005A1DC /* CollectionCell.swift */,
+				8D16F0AF23D07352004F9070 /* ProfileViewController.swift */,
+				8DA6091B2447CDAF00CCDEC8 /* DetalisProfileViewController.swift */,
+				8DC02E6E2448F8CE00215743 /* personContenerViewController.swift */,
+				8D2DF31D24493120001C9FEC /* otherContenerViewController.swift */,
+				8D1140B9244A39EA00072D0F /* editProfileViewController.swift */,
+				8D7097AB244D73030070FCAC /* selfIntroViewController.swift */,
+				8D7097A7244B5DCD0070FCAC /* CustomTableViewCell.swift */,
+				8D7097A9244C59A70070FCAC /* profileNavigationViewController.swift */,
+				8D7097AD244FD0EA0070FCAC /* goodTableViewController.swift */,
+				8DBD778C244FEE7400DD1D85 /* goodTableArray.swift */,
 				8D227A8623D814BB006FBD7C /* TalkroomViewController.swift */,
 				8D227A8823D8207C006FBD7C /* MytalkroomCell.swift */,
 				8D64CC5B23D0E59C0045F413 /* MessageViewController.swift */,
@@ -126,7 +153,7 @@
 				8D5C68EF23CDC08000D8F528 /* Sources */,
 				8D5C68F023CDC08000D8F528 /* Frameworks */,
 				8D5C68F123CDC08000D8F528 /* Resources */,
-				73765BD55B4A526691D7626D /* [CP] Embed Pods Frameworks */,
+				80731381B43377D9EA9C072C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -206,7 +233,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		73765BD55B4A526691D7626D /* [CP] Embed Pods Frameworks */ = {
+		80731381B43377D9EA9C072C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -230,17 +257,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DC02E6F2448F8CE00215743 /* personContenerViewController.swift in Sources */,
+				8D2DF31E24493120001C9FEC /* otherContenerViewController.swift in Sources */,
+				8D7097A8244B5DCD0070FCAC /* CustomTableViewCell.swift in Sources */,
 				8D49E3BA243751A900086C63 /* TabBarController.swift in Sources */,
 				8D227A8723D814BB006FBD7C /* TalkroomViewController.swift in Sources */,
 				8D3981DE243738220005A1DC /* CollectionCell.swift in Sources */,
 				8D227A8923D8207C006FBD7C /* MytalkroomCell.swift in Sources */,
+				8DBD778D244FEE7400DD1D85 /* goodTableArray.swift in Sources */,
+				8D7097AC244D73030070FCAC /* selfIntroViewController.swift in Sources */,
 				8D9D7C0E23D3BEB70037CFCE /* MockMessage.swift in Sources */,
 				8D5C690923CDC76E00D8F528 /* HomeViewController.swift in Sources */,
+				8D7097AE244FD0EA0070FCAC /* goodTableViewController.swift in Sources */,
 				8D3981E024374BA60005A1DC /* CastamCollection.swift in Sources */,
 				8D5C68F923CDC08000D8F528 /* accountViewController.swift in Sources */,
 				8D5C68F723CDC08000D8F528 /* AppDelegate.swift in Sources */,
+				8D1140BA244A39EA00072D0F /* editProfileViewController.swift in Sources */,
 				8D64CC5C23D0E59C0045F413 /* MessageViewController.swift in Sources */,
-				8D16F0B023D07352004F9070 /* PostViewController.swift in Sources */,
+				8D16F0B023D07352004F9070 /* ProfileViewController.swift in Sources */,
+				8DA6091C2447CDAF00CCDEC8 /* DetalisProfileViewController.swift in Sources */,
+				8D7097AA244C59A70070FCAC /* profileNavigationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

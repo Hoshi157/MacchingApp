@@ -22,16 +22,22 @@ class TabBarController: UITabBarController {
         homeViewController.navigationBar.barTintColor = .white
         self.ViewVontrollers.append(homeViewController)
         
-        let postViewController: UINavigationController = UINavigationController(rootViewController: PostViewController())
-        postViewController.navigationBar.barTintColor = .white
-        postViewController.tabBarItem.image = #imageLiteral(resourceName: "Post")
-        postViewController.tabBarItem.title = "ポスト"
-        self.ViewVontrollers.append(postViewController)
+        let profileViewController: UINavigationController = UINavigationController(rootViewController: ProfileViewController())
+        profileViewController.navigationBar.barTintColor = .white
+        profileViewController.tabBarItem.image = #imageLiteral(resourceName: "account")
+        profileViewController.tabBarItem.title = "プロフィール"
+        self.ViewVontrollers.append(profileViewController)
+        
+        let goodTableVC : UINavigationController = UINavigationController(rootViewController: goodTableViewController())
+        goodTableVC.navigationBar.barTintColor = .white
+        goodTableVC.tabBarItem.image = #imageLiteral(resourceName: "good_tab")
+        goodTableVC.tabBarItem.title = "お相手から"
+        self.ViewVontrollers.append(goodTableVC)
         
         let talkroomViewController: UINavigationController = UINavigationController(rootViewController: TalkroomViewController())
         talkroomViewController.tabBarItem.image = #imageLiteral(resourceName: "message")
+        talkroomViewController.tabBarItem.title = "メッセージ"
         talkroomViewController.navigationBar.barTintColor = .white
-        talkroomViewController.tabBarItem.title = "トーク"
         self.ViewVontrollers.append(talkroomViewController)
         
         self.tabBar.barTintColor = .white

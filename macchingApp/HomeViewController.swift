@@ -14,7 +14,6 @@ class HomeViewController: UIViewController {
     let userDefault = UserDefaults.standard
     let userDb = Firestore.firestore().collection("users")
     var MyCollections = [CastamCollection]()
-    let size: CGRect = UIScreen.main.bounds
     
     // コレクションビュー作成
     private let collectionView: UICollectionView = {
@@ -23,7 +22,7 @@ class HomeViewController: UIViewController {
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         
-        let collectionView: UICollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height), collectionViewLayout: layout)
+        let collectionView: UICollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height), collectionViewLayout: layout)
         collectionView.backgroundColor = .white
         collectionView.register(CollectionCell.self, forCellWithReuseIdentifier: "cell")
         return collectionView
@@ -40,55 +39,27 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.addSubview(collectionView)
-        // ローカルに自分のID(uid)が保存しているかでアカウントを作成したか判断
-        if userDefault.string(forKey: "uid") != nil {
-            self.navigationItem.title = "ホーム (ログイン)"
-        }else {
-            self.navigationItem.title = "ホーム (ログアウト)"
-            
-            // アカウントを作成していない場合、匿名ログインする
-            Auth.auth().signInAnonymously() { (authResult, error) in
-                if error != nil {
-                    print("エラー")
-                    return
-                }
-            }
-            
-        }
+        
         collectionView.delegate = self
         collectionView.dataSource = self
-        self.navigationItem.leftBarButtonItem = accountButton
+        self.navigationItem.rightBarButtonItem = accountButton
+        self.title = "ホーム"
         
-        // Do any additional setup after loading the view.
-    }
-    // アカウント作成ページへ移動する
-    @objc func accountButtonAction(_ button: UIBarButtonItem) {
-        let accountVC = accountViewController()
-        accountVC.modalPresentationStyle = .fullScreen
-        let transition: CATransition = CATransition()
-        transition.type = CATransitionType.push
-        transition.subtype = CATransitionSubtype.fromLeft
-        view.window?.layer.add(transition, forKey: kCATransition)
-        present(accountVC, animated: false)
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.MyCollections = []
         // firebaseに保存されたユーザーの名前、画像情報を取り出しコレクションビューに反映
-        userDb.getDocuments {(querySnapshot,error) in
-            guard let documens = querySnapshot?.documents else{return}
-            print(documens)
-            
-            documens.forEach{ diff in
+        Firestore.firestore().collection("users").addSnapshotListener { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else {
+                return
+            }
+            self.MyCollections = []
+            documents.forEach{ diff in
                 print(diff.documentID)
                 let name = diff.data()["name"] as! String
                 let uid = diff.documentID
                 let image = diff.data()["image"] as! String
+                let hobby: String? = diff.data()["hobby"] as? String
+                let intro: String? = diff.data()["selfIntroTextView"] as? String
                 print(name)
-                let castamCollection = CastamCollection(name:name, uid:uid, image:image)
+                let castamCollection = CastamCollection(name:name, uid:uid, image:image, hobby: hobby, introText: intro)
                 print(castamCollection)
                 self.MyCollections.append(castamCollection)
                 print(self.MyCollections.count)
@@ -98,6 +69,14 @@ class HomeViewController: UIViewController {
             }
         }
         
+        // Do any additional setup after loading the view.
+    }
+    
+    // アカウント作成ページへ移動する
+    @objc func accountButtonAction(_ button: UIBarButtonItem) {
+        let accountVC = accountViewController()
+        accountVC.modalPresentationStyle = .fullScreen
+        self.present(accountVC, animated: true)
     }
     
     /*
@@ -109,7 +88,6 @@ class HomeViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
-    
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -126,55 +104,48 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         DispatchQueue.global().async {
             let imageString: String = self.MyCollections[indexPath.item].image!
             let image: UIImage? = UIImage(data: Data(base64Encoded: imageString, options: .ignoreUnknownCharacters)!)
-            // 元からセットしてある画像ではなかったらセルを更新
+            // セルを更新
             DispatchQueue.main.async {
-                if image! != UIImage(named: "No Image") {
-                    cell.ImageView.image = image
-                    cell.setNeedsLayout()
-                }
+                cell.ImageView.image = image
+                cell.setNeedsLayout()
             }
+        }
+        // 趣味、自己紹介ラベルはプロフィール編集画面に行かないとnilの可能性があるためnilチェック
+        if (self.MyCollections[indexPath.row].hobby != nil) {
+            let hobbyText = self.MyCollections[indexPath.row].hobby
+            cell.HobbyLabel.text = hobbyText
+        }else {
+            cell.HobbyLabel.text = ""
+        }
+        if (self.MyCollections[indexPath.row].introText != nil) {
+            let intro = self.MyCollections[indexPath.row].introText
+            cell.IntroductionLabel.text = intro
+        }else {
+            cell.IntroductionLabel.text = ""
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // セルの大きさは画面の3分の１
-        let cellSise: CGFloat = self.view.bounds.width / 3
-        return CGSize(width: cellSise - 5, height: cellSise)
+        // セルの大きさはscreenの縦1/3, 横1/2
+        let cellWidth: CGFloat = UIScreen.main.bounds.width / 2
+        let cellHeight: CGFloat = UIScreen.main.bounds.height / 3
+        return CGSize(width: cellWidth, height: cellHeight - 30)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // ローカルにuidが保存していなけばアラート表示
-        if userDefault.string(forKey: "uid") == nil {
-            alertAction(text: "アカウントを登録してください")
-            return
-        }
-        // チャットする相手のuidを取得,ローカルに保存
-        let targetUid = MyCollections[indexPath.row].uid
-        userDefault.set(targetUid, forKey: "targetUid")
+        // タップしたcellのユーザーuidを送る
+        let indexRow = indexPath.row
+        let targetUid = self.MyCollections[indexRow].uid
         
-        let uid = userDefault.string(forKey:"uid")
-        let messageViewController: MessageViewController = MessageViewController()
-        messageViewController.modalPresentationStyle = .fullScreen
-        // firebaseにて過去にチャット歴があればルームナンバーを取得する
-        Firestore.firestore().collection("users").document(uid!).collection("already").getDocuments(){querySnapshot,error in
-            if querySnapshot != nil {
-                guard let documents = querySnapshot?.documents else{return}
-                for document in documents {
-                    // チャット歴があればMessageViewControllerにルームナンバーを投げる
-                    if document.data()[targetUid!] != nil{
-                        let targetRoomId = document.data()[targetUid!]
-                        print("targetRoomIdHome:\(targetRoomId!)")
-                        messageViewController.targetRoomId = targetRoomId as? String
-                        // チャット歴があった時点で抜ける
-                        break
-                    }
-                    
-                }
-            }
-            
+        if (userDefault.string(forKey: "uid") != targetUid) {
+            let otherContenerVC = otherContenerViewController()
+            otherContenerVC.cellTagetUid = targetUid
+            self.present(otherContenerVC, animated: true)
+        }else {
+            let personVC = personContenerViewController()
+            self.present(personVC, animated: true)
         }
-        self.present(messageViewController, animated: true,completion:nil)
     }
     
     func alertAction(text:String){

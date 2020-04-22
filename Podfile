@@ -13,4 +13,5 @@ pod 'Firebase/Auth'
 pod 'MessageKit'
 pod 'SnapKit'
 pod 'TPKeyboardAvoiding'
+pod 'MaterialComponents'
 end

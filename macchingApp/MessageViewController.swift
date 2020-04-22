@@ -30,7 +30,7 @@ class MessageViewController: MessagesViewController {
     lazy var naviBar: UINavigationBar = {
         let navBar: UINavigationBar = UINavigationBar()
         navBar.frame = CGRect(x: 0, y: 50, width: screen.width, height: 60)
-        navBar.barTintColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.6991919949)
+        navBar.barTintColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.25)
         navBar.tintColor = .orange
         navBar.setValue(true, forKey: "hidesShadow")
         return navBar
@@ -58,7 +58,7 @@ class MessageViewController: MessagesViewController {
         messagesCollectionView.messagesDisplayDelegate = self
         messageInputBar.delegate = self
         messagesCollectionView.messageCellDelegate = self
-        messagesCollectionView.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.7)
+        messagesCollectionView.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.2462275257)
         self.chatFlg = false
         
         if let layot = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
@@ -81,12 +81,7 @@ class MessageViewController: MessagesViewController {
     }
     
     @objc func dismissButtonAction(_ button: UIBarButtonItem){
-        let transiton: CATransition = CATransition()
-        transiton.duration = 0.25
-        transiton.type = CATransitionType.push
-        transiton.subtype = CATransitionSubtype.fromLeft
-        view.window?.layer.add(transiton, forKey: kCATransition)
-        self.dismiss(animated: false, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {

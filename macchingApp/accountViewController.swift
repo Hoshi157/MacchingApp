@@ -9,13 +9,14 @@
 import UIKit
 import Firebase
 import SnapKit
-import TPKeyboardAvoiding
+import MaterialComponents
 // アカウント作成画面
 class accountViewController: UIViewController, UITextFieldDelegate {
     
     let userDefault = UserDefaults.standard
     let app = UIApplication.shared.delegate as! AppDelegate
     let screen: CGRect = UIScreen.main.bounds
+    let usersDB = Firestore.firestore().collection("users")
     
     private var nameTextFierld: UITextField = {
         let textFierld: UITextField = UITextField()
@@ -48,19 +49,15 @@ class accountViewController: UIViewController, UITextFieldDelegate {
         return button
     }()
     
-    lazy var dismissButtonItem: UINavigationItem = {
-        let button: UINavigationItem = UINavigationItem()
-        button.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "back_right"), landscapeImagePhone: #imageLiteral(resourceName: "back_right"), style: .plain, target: self, action: #selector(dismissButtonAction(_:)))
+    lazy var dismissButton: MDCFloatingButton = {
+        let button: MDCFloatingButton = MDCFloatingButton()
+        button.sizeToFit()
+        button.backgroundColor = #colorLiteral(red: 0.5704585314, green: 0.5704723597, blue: 0.5704649091, alpha: 0.7)
+        let buttonImage: UIImage = #imageLiteral(resourceName: "cross").withRenderingMode(.alwaysTemplate)
+        button.setImage(buttonImage, for: .normal)
+        button.tintColor = .white
+        button.addTarget(self, action: #selector(dismissButtonAction(_:)), for: .touchUpInside)
         return button
-    }()
-    
-    private let navigationBar: UINavigationBar = {
-        let naviBar: UINavigationBar = UINavigationBar()
-        naviBar.frame = CGRect(x: 0, y: 60, width: UIScreen.main.bounds.width, height: 40)
-        naviBar.barTintColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
-        naviBar.tintColor = .orange
-        naviBar.setValue(true, forKey: "hidesShadow")
-        return naviBar
     }()
     
     override func viewDidLoad() {
@@ -71,12 +68,11 @@ class accountViewController: UIViewController, UITextFieldDelegate {
         self.view.addSubview(passwardTextFierld)
         self.view.addSubview(adressTextFierld)
         self.view.addSubview(loginButton)
-        self.view.addSubview(navigationBar)
+        self.view.addSubview(dismissButton)
         
-        self.navigationBar.pushItem(dismissButtonItem, animated: false)
         self.view.isUserInteractionEnabled = true
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewTapAction(_:))))
-        self.view.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
+        self.view.backgroundColor = #colorLiteral(red: 0.9569886108, green: 0.9664637456, blue: 0.9664637456, alpha: 1)
         
         nameTextFierld.snp.makeConstraints{ (make) in
             make.centerX.equalToSuperview()
@@ -106,6 +102,13 @@ class accountViewController: UIViewController, UITextFieldDelegate {
             make.top.equalTo(passwardTextFierld.snp.bottom).offset(100)
         }
         
+        dismissButton.snp.makeConstraints { (make) in
+            make.top.equalTo(self.view).offset(45)
+            make.right.equalTo(self.view).offset(-15)
+            make.width.equalTo(40)
+            make.height.equalTo(40)
+        }
+        
     }
     
     
@@ -125,7 +128,7 @@ class accountViewController: UIViewController, UITextFieldDelegate {
             
             if adress.isEmpty || passWard.isEmpty || name.isEmpty {
                 print("入力されていない")
-                alertAction(text: "入力されていないテキストがあります")
+                alertAction(title: "入力されていません")
                 button.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 return
             }
@@ -141,6 +144,7 @@ class accountViewController: UIViewController, UITextFieldDelegate {
                 self.userDefault.set(name, forKey: "name")
                 self.userDefault.set(adress, forKey: "adress")
                 self.userDefault.set(passWard, forKey: "pass")
+                
                 // ログイン
                 Auth.auth().signIn(withEmail: adress, password: passWard, completion:{authResult, error in
                     
@@ -153,27 +157,21 @@ class accountViewController: UIViewController, UITextFieldDelegate {
                         return
                     }
                     self.app.uid = user.uid
-                    self.userDefault.set(self.app.uid, forKey: "uid")
-                    button.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                    self.userDefault.set(user.uid, forKey: "uid")
                     
-                    let transition: CATransition = CATransition()
-                    transition.duration = 0.25
-                    transition.type = CATransitionType.push
-                    transition.subtype = CATransitionSubtype.fromRight
-                    self.view.window?.layer.add(transition, forKey: kCATransition)
-                    self.dismiss(animated: false, completion: nil)
+                    // アカウント作成後,名前,ルームナンバー, 仮アバターをfirebaseへpost
+                    let imageData = #imageLiteral(resourceName: "no_Image").jpegData(compressionQuality: 0.5)
+                    let imageString = imageData!.base64EncodedString(options: .lineLength64Characters)
+                    let post = ["name": name, "inRoom": "0", "image": imageString]
+                    Firestore.firestore().collection("users").document(user.uid).setData(post)
+                    self.dismiss(animated: true, completion: nil)
                 })
             })
         }
     }
     // 戻るボタン
-    @objc func dismissButtonAction(_ button: UIBarButtonItem){
-        let transition: CATransition = CATransition()
-        transition.duration = 0.25
-        transition.type = CATransitionType.push
-        transition.subtype = CATransitionSubtype.fromRight
-        view.window?.layer.add(transition, forKey: kCATransition)
-        self.dismiss(animated: false, completion: nil)
+    @objc func dismissButtonAction(_ button: MDCFloatingButton){
+        self.dismiss(animated: true, completion: nil)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -181,13 +179,14 @@ class accountViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    func alertAction(text:String){
-        let alertController = UIAlertController(title: "アラート", message: text, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(okAction)
-        self.present(alertController,animated: true)
+    func alertAction(title: String){
+        let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        self.present(alertController,animated: true, completion: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
     }
-    
     
 }
 

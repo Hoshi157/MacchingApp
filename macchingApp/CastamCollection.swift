@@ -13,11 +13,15 @@ class CastamCollection {
     var name:String?
     var uid:String?
     var image:String?
+    var hobby: String?
+    var introText: String?
     
-    init(name:String,uid:String,image:String) {
+    init(name:String,uid:String,image:String, hobby: String?, introText: String?) {
         
         self.name = name
         self.uid = uid
         self.image = image
+        self.hobby = hobby
+        self.introText = introText
     }
 }
