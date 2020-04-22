@@ -40,16 +40,15 @@ macching service created from swift.
 * 自分のことをいいねしてくれた相手を表示する。
 * タップすると相手のプロフィールを閲覧することができる。
 
-<img src="https://user-images.githubusercontent.com/51669998/79055700-09cd4500-7c8a-11ea-8416-fdcb09bed827.png" width="200px">&emsp;
-<img src="https://user-images.githubusercontent.com/51669998/79055704-0e91f900-7c8a-11ea-98f2-07ff0cf18f6f.png" width="200px">&emsp;
+<img src="https://user-images.githubusercontent.com/51669998/80036943-ac5cb200-852d-11ea-9a29-083de457de74.png" width="200px">
 
 ### 4.メッセージ画面
 
 * チャットした相手の履歴が表示される。
 * タップするとチャットの続きを開始することができる。
 
-<img src="https://user-images.githubusercontent.com/51669998/79055737-5749b200-7c8a-11ea-98fa-1d2d5b747de6.png" width="200px">&emsp;
-<img src="https://user-images.githubusercontent.com/51669998/79055744-5ca6fc80-7c8a-11ea-9c42-0fda0fa67018.png" width="200px">&emsp;
+<img src="https://user-images.githubusercontent.com/51669998/80036958-aff03900-852d-11ea-928e-1d3b70b4f378.png" width="200px">&emsp;
+<img src="https://user-images.githubusercontent.com/51669998/80036965-b2529300-852d-11ea-8f7e-437d99fa5957.png" width="200px">
 
 
 ### 5.アカウント作成
@@ -60,7 +59,9 @@ macching service created from swift.
 ① ホーム画面に自分のアイコンを表示  
 ② チャット機能  
 ③ いいね機能  
-   が使える様になる。
+   が使える様になる。  
+   
+   <img src="https://user-images.githubusercontent.com/51669998/80037174-12e1d000-852e-11ea-838c-27c29f7f5460.png" width="200px">
 
 
 ### 6.アイコン
