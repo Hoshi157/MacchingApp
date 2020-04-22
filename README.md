@@ -83,6 +83,10 @@ pod "target" install
 
 ## 工夫した点
 
+* タブコントローラーを使用し使用できる機能をわかりやすい様にした。
+* ストーリーボードを廃止してコードのみの実装へ変更した。
+* 保存や画面更新などはuserDefaultsやFirestoreのaddSnapshotoLissunなどに変更してデータが変更された際に受け取れる様にした。
+
 
 
 ## License
