@@ -46,6 +46,7 @@ class TabBarController: UITabBarController {
         self.setViewControllers(ViewVontrollers, animated: false)
         // Do any additional setup after loading the view.
         
+        // 匿名ログイン
         Auth.auth().signInAnonymously(completion: nil)
     }
     
