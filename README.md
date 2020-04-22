@@ -20,9 +20,9 @@ macching service created from swift.
 * セルをタップすると相手のプロフィールが閲覧できる様になっている。
 * 相手のプロフィールからいいねとチャットができる。(ログイン時のみ)
 
-<img src="https://user-images.githubusercontent.com/51669998/79055570-fa013100-7c88-11ea-9258-88a16b61c767.png" width="200px">&emsp;
-<img src="https://user-images.githubusercontent.com/51669998/79055611-6714c680-7c89-11ea-80d8-760d33717cd7.png" width="200px">&emsp;
-<img src="https://user-images.githubusercontent.com/51669998/79055632-91668400-7c89-11ea-9bd4-71330403e1ba.png" width="200px">
+<img src="https://user-images.githubusercontent.com/51669998/80036483-c6e25b80-852c-11ea-99ee-bb99f223b350.png" width="200px">&emsp;
+<img src="https://user-images.githubusercontent.com/51669998/80036505-d06bc380-852c-11ea-8e4b-81e69f0862ff.png" width="200px">&emsp;
+<img src="https://user-images.githubusercontent.com/51669998/80036533-e2e5fd00-852c-11ea-9616-86e9f39ed77d.png" width="200px">
 
 
 ### 2.プロフィール画面
@@ -31,23 +31,24 @@ macching service created from swift.
 * 画像かプロフィール確認という部分をタップすることで相手が自分のアイコンをタップしたときのプロフィールを閲覧できる。
 * またプロフィールを編集するボタンをタップするとプロフィールを編集することができる。
 
-<img src="https://user-images.githubusercontent.com/51669998/79055666-d25e9880-7c89-11ea-97b1-b1e8f0d1d4e5.png" width="200px">
+<img src="https://user-images.githubusercontent.com/51669998/80036699-39533b80-852d-11ea-865c-522621c47191.png" width="200px">&emsp;
+<img src="https://user-images.githubusercontent.com/51669998/80036712-3ce6c280-852d-11ea-9a93-280ee2c6d367.png" width="200px">&emsp;
+<img src="https://user-images.githubusercontent.com/51669998/80036718-3f491c80-852d-11ea-8fa4-26b54891e822.png" width="200px">
 
 ### 3.いいね画面
 
 * 自分のことをいいねしてくれた相手を表示する。
 * タップすると相手のプロフィールを閲覧することができる。
 
-<img src="https://user-images.githubusercontent.com/51669998/79055700-09cd4500-7c8a-11ea-8416-fdcb09bed827.png" width="200px">&emsp;
-<img src="https://user-images.githubusercontent.com/51669998/79055704-0e91f900-7c8a-11ea-98f2-07ff0cf18f6f.png" width="200px">&emsp;
+<img src="https://user-images.githubusercontent.com/51669998/80036943-ac5cb200-852d-11ea-9a29-083de457de74.png" width="200px">
 
 ### 4.メッセージ画面
 
 * チャットした相手の履歴が表示される。
 * タップするとチャットの続きを開始することができる。
 
-<img src="https://user-images.githubusercontent.com/51669998/79055737-5749b200-7c8a-11ea-98fa-1d2d5b747de6.png" width="200px">&emsp;
-<img src="https://user-images.githubusercontent.com/51669998/79055744-5ca6fc80-7c8a-11ea-9c42-0fda0fa67018.png" width="200px">&emsp;
+<img src="https://user-images.githubusercontent.com/51669998/80036958-aff03900-852d-11ea-928e-1d3b70b4f378.png" width="200px">&emsp;
+<img src="https://user-images.githubusercontent.com/51669998/80036965-b2529300-852d-11ea-8f7e-437d99fa5957.png" width="200px">
 
 
 ### 5.アカウント作成
@@ -58,12 +59,14 @@ macching service created from swift.
 ① ホーム画面に自分のアイコンを表示  
 ② チャット機能  
 ③ いいね機能  
-   が使える様になる。
+   が使える様になる。  
+   
+   <img src="https://user-images.githubusercontent.com/51669998/80037174-12e1d000-852e-11ea-838c-27c29f7f5460.png" width="200px">
 
 
 ### 6.アイコン
 * 機能とは関係ないですがsketchでアイコンを自作した。
-* このアプリのコンセプトとして共通の好きなものを通して繋がりし自分の持っているものでより大きな力を作る。(マッチの火薬とライターの火でより大きな火をと言う意味を込めてマッチとライターになった)
+* このアプリのコンセプトとして共通の好きなものを通して繋がり,自分の持っているものでより大きな力を作る。(マッチの火薬とライターの火でより大きな火をと言う意味を込めてマッチとライターになった)
 
 <img src="https://user-images.githubusercontent.com/51669998/73010694-37a6a880-3e56-11ea-8986-3adfa63016ec.png" width="200px">
 
